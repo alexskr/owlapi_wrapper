@@ -20,6 +20,8 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
+    - name: Prepare all dependencies
+      run: mvn dependency:go-offline -B
     - name: Compile
       run: mvn -B compile
     - name: Run tests
