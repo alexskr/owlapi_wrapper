@@ -22,7 +22,11 @@ jobs:
 
       - name: Extract version from tag
         id: vars
-        run: echo "version=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+        run: |
+          TAG_NAME=${GITHUB_REF##*/}
+          VERSION=${TAG_NAME#v}
+          echo "tag=$TAG_NAME" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Build JAR
         run: mvn -B clean package -DskipTests=true -Drevision=${{ steps.vars.outputs.version }}
@@ -30,7 +34,7 @@ jobs:
       - name: Upload JAR to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: target/owlapi-wrapper-*.jar
+          files: target/owlapi-wrapper-${{ steps.vars.outputs.version }}.jar
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
