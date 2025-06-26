@@ -9,9 +9,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 11
@@ -21,9 +19,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Prepare all dependencies
-      run: mvn dependency:go-offline -B
-    - name: Compile
-      run: mvn -B compile
+      run: mvn -B dependency:go-offline
     - name: Run tests
       run: mvn -B test
     - name: Upload coverage to Codecov

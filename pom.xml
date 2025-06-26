@@ -3,7 +3,7 @@
 
   <groupId>org.stanford.ncbo.oapiwrapper</groupId>
   <artifactId>owlapi-wrapper</artifactId>
-  <version>1.4.5-SNAPSHOT</version>
+  <version>1.4.3-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>owlapi_wrapper</name>
@@ -100,7 +100,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <revision>1.4.3-SNAPSHOT</revision>
   </properties>
 
   <dependencies>
@@ -139,13 +138,13 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-core</artifactId>
-      <version>1.4.11</version>
+      <version>1.4.14</version>
     </dependency>
 
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.4.11</version>
+      <version>1.4.14</version>
     </dependency>
 
     <dependency>
@@ -243,7 +242,6 @@
           </execution>
         </executions>
       </plugin>
-
     </plugins>
 
   </build>
